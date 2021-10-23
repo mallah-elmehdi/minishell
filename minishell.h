@@ -1,8 +1,7 @@
 #ifndef MINISHELL_H
 # include <stdio.h>
 # include <stdlib.h>
-# include <readline/readline.h>
-# include <readline/history.h>
+# include <unistd.h>
 
 typedef struct s_cmd 
 {
