@@ -1,0 +1,3 @@
+echo (status)
+
+if no status => status is the last command status 

@@ -1,0 +1,16 @@
+------------------
+
+echo \anything
+anything
+
+------------------
+
+echo """""text""""" OR echo '''''text'''''
+text
+
+------------------
+
+echo $var
+(the var value from the env)
+
+------------------

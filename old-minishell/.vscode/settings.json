@@ -1,0 +1,11 @@
+{
+	"files.associations": {
+		"minishell.h": "c",
+		"gnl.h": "c",
+		"tool.h": "c",
+		"command.h": "c",
+		"parsing.h": "c",
+		"execution.h": "c",
+		"curses.h": "c"
+	}
+}
