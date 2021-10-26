@@ -5,7 +5,7 @@ int	pwd(t_cmd *cmd)
 	char	*pwd;
 	int		pwd_length;
 
-	pwd_length = pwd_path_length(cmd->env);
+	pwd_length = pwd_path_length(cmd->env_export->env);
 	pwd = NULL;
 	if (pwd_length == -1)
 		return (EXIT_FAILURE);

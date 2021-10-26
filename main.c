@@ -1,25 +1,38 @@
 #include "minishell.h"
 
-int main(int ac, char **av, char **env)
+int main(int ac, char **av, char **menv)
 {
-	// -----------------------
 	if (ac != 0)
-	{
-		printf("%s\n", av[0]);
-		printf("%s\n=========\n", env[0]);
-	}
+		printf("%s\n--------------------------------------------------------\n", av[0]);
 	// -----------------------
-	t_cmd	*cmds;
+	int				ret;
+	t_cmd			*cmds;
+	t_env_export	*env_export;
 
-	cmds = (t_cmd *)ft_calloc(sizeof(t_cmd), 2);
-	if (cmds == NULL)
+	env_export = init_env_export((const char **)menv);
+	if (env_export == NULL)
 		return (error(NULL));
-	if (init_cmds(cmds, env) == EXIT_FAILURE
-		|| ft_cmds(cmds) == EXIT_FAILURE)
+	cmds = init_cmds(&env_export[0]);
+	if (cmds == NULL)
 	{
-		free (cmds);
-		return (EXIT_FAILURE);
+		free(env_export);
+		return (error(NULL));
 	}
-	return (EXIT_SUCCESS);
-	//printf("Minishell: %s:%s",cmd,strerror(errno));
+	int i = 0;
+	while (env_export->export[i])
+	{
+		printf("%s\n", env_export->export[i]);
+		i++;
+	}
+	printf("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+	ret = ft_cmds(cmds);
+	i = 0;
+	while (env_export->export[i])
+	{
+		printf("%s\n", env_export->export[i]);
+		i++;
+	}
+	free(cmds);
+	free(env_export);
+	return (ret);
 }

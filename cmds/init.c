@@ -1,19 +1,41 @@
 #include "../minishell.h"
 
-int	init_cmds(t_cmd *cmds, char **env)
+t_cmd	*init_cmds(t_env_export *env_export)
 {
-	int	i;
+	t_cmd	*cmds;
+
+	cmds = (t_cmd *)ft_calloc(sizeof(t_cmd), 2);
+	if (cmds == NULL)
+		return (NULL);
+	cmds[0].arg = NULL;
+	cmds[0].cmd = ft_strdup("cd");
+	cmds[0].env_export = env_export;
+	return (cmds);
+}
+
+t_env_export	*init_env_export(const char **menv)
+{
+	t_env_export	*env_export;
+	int 			i;
 
 	i = 0;
-	while (i < 1)
+	env_export = (t_env_export *)ft_calloc(sizeof(t_env_export), 2);
+	if (env_export == NULL)
+		return (NULL);
+	env_export[0].env = init_env(menv);
+	if (env_export[0].env == NULL)
 	{
-		//cmds[i].arg = ft_strdup("/Users");
-		cmds[i].arg = NULL;//ft_strdup("/Usrs");
-		cmds[i].cmd = ft_strdup("pwd");
-		cmds[i].env = env;
-		i++;
+		free(env_export);
+		return (NULL);
 	}
-	return (EXIT_SUCCESS);
+	env_export[0].export = init_export(menv);
+	if (env_export[0].export == NULL)
+	{
+		free(env_export[0].env);
+		free(env_export);
+		return (NULL);
+	}
+	return (env_export);
 }
 
 // leaks here

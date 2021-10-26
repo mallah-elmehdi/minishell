@@ -2,15 +2,18 @@
 
 int	cd(t_cmd *cmd)
 {
+	int		ret;
 	char	*path;
-	int		err;
 
-	path = cd_path(cmd->arg, cmd->env);
+	path = cd_path(cmd->arg, cmd->env_export->env);
 	if (path == NULL)
 		return (EXIT_FAILURE);
-	err = chdir(path);
-	free(path);
-	if (err != 0)
+	if (chdir(path) != 0)
+	{
+		free(path);
 		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+	}
+	ret = update_env_export(path, cmd->env_export);
+	free(path);	
+	return (ret);
 }

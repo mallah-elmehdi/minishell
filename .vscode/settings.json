@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"cstdlib": "cpp",
+		"locale": "cpp",
+		"minishell.h": "c"
+	}
+}

@@ -7,6 +7,7 @@ int	ft_cmds(t_cmd *cmds)
 	i = 0;
 	while (i < 1)
 	{
+
 		if (ft_strnstr(cmds[i].cmd, "cd", 2))
 		{
 			if (cd(&cmds[i]) == EXIT_FAILURE)

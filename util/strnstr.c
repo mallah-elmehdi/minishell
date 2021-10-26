@@ -8,10 +8,10 @@ char	*ft_strnstr(const char *str1, const char *str2, int n)
 	i = 0;
 	if (ft_strlen(str2) == 0)
 		return ((char *)str1);
-	while (str1[i] && i < n)
+	while (str1[i])
 	{
 		a = 0;
-		while (str1[i + a] == str2[a] && (i + a) < n)
+		while (str1[i + a] == str2[a] && a < n)
 		{
 			a++;
 			if (str2[a] == '\0')
