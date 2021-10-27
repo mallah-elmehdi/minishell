@@ -1,4 +1,4 @@
-#include "../minishell.h"
+#include "../../minishell.h"
 
 t_cmd	*init_cmds(t_env_export *env_export)
 {
@@ -7,8 +7,9 @@ t_cmd	*init_cmds(t_env_export *env_export)
 	cmds = (t_cmd *)ft_calloc(sizeof(t_cmd), 2);
 	if (cmds == NULL)
 		return (NULL);
-	cmds[0].arg = NULL;
-	cmds[0].cmd = ft_strdup("cd");
+	//cmds[0].arg = ft_strdup("..");
+	cmds[0].arg = ft_split("salam=\"ok\":wwwwww", ':');
+	cmds[0].cmd = ft_strdup("export");
 	cmds[0].env_export = env_export;
 	return (cmds);
 }

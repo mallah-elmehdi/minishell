@@ -27,3 +27,28 @@ char	*ft_strjoin(const char *s, const char *s0)
 		*p++ = *(char *)s0++;
 	return (&p[-j + 1]);
 }
+
+char *ft_strjoin_w_quote(char *str)
+{
+	int		i;
+	int		j;
+	char	*output;
+
+	output = (char *)ft_calloc(sizeof(char), ft_strlen(str) + 3);
+	i = 0;
+	j = 0;
+	if (output == NULL)
+		return (NULL);
+	while (str[i])
+	{
+		if (str[i] != '"' && str[i] != '\'' )
+		{
+			output[j++] = str[i];
+			if (str[i] == '=')
+				output[j++] = '"';
+		}
+		i++;
+	}
+	output[j] = '"';
+	return (output);
+}

@@ -2,6 +2,10 @@
 	"files.associations": {
 		"cstdlib": "cpp",
 		"locale": "cpp",
-		"minishell.h": "c"
+		"minishell.h": "c",
+		"cmds.h": "c",
+		"cd.h": "c",
+		"env.h": "c",
+		"pwd.h": "c"
 	}
 }

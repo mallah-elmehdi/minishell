@@ -13,7 +13,7 @@ int	cd(t_cmd *cmd)
 		free(path);
 		return (EXIT_FAILURE);
 	}
-	ret = update_env_export(path, cmd->env_export);
+	ret = update_env_export(cmd->env_export);
 	free(path);	
 	return (ret);
 }

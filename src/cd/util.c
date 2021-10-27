@@ -66,11 +66,11 @@ char	*cd_path(const char *path, char **env)
 	return (NULL);
 }
 
-int	update_env_export(char *path, t_env_export *env_export)
+int	update_env_export(t_env_export *env_export)
 {
-	if (update_env(path, env_export->env) == EXIT_FAILURE)
+	if (update_env(env_export->env) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
-	if (update_export(path, env_export->export) == EXIT_FAILURE)
+	if (update_export(env_export->export) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

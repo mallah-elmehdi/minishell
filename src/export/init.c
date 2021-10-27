@@ -70,35 +70,3 @@ char	**init_export(const char **menv)
 	}
 	return (export);
 }
-
-int	update_export(char *path, char **export)
-{
-	char	*old_pwd;
-	int		i;
-
-	old_pwd = get_old_pwd(export);
-
-	i = 0;
-	if (old_pwd == NULL)
-		return (EXIT_FAILURE);
-	while (export[i])
-	{
-		if (ft_strnstr(export[i], "OLDPWD", 6))
-		{
-			free(export[i]);
-			export[i] = ft_strjoin("declare -x OLDPWD=", old_pwd);
-			free(old_pwd);
-			if (export[i] == NULL)
-				return (EXIT_FAILURE);
-		}
-		if (ft_strnstr(export[i], "PWD", 3))
-		{
-			free(export[i]);
-			export[i] = ft_strjoin("declare -x PWD=", path);
-			if (export[i] == NULL)
-				return (EXIT_FAILURE);
-		}
-		i++;
-	}
-	return (EXIT_SUCCESS);
-}
