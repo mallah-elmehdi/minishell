@@ -3,6 +3,6 @@
 int ft_cd(const char *path)
 {
 	if (chdir(path))
-		return (error());
+		return (sys_error());
 	return (SUCCESS);
 }

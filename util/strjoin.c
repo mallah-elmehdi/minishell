@@ -28,27 +28,51 @@ char	*ft_strjoin(const char *s, const char *s0)
 	return (&p[-j + 1]);
 }
 
-char *ft_strjoin_w_quote(char *str)
+char	*ft_copy(char **temp, char *str, int length)
 {
 	int		i;
 	int		j;
+	int		k;
 	char	*output;
 
-	output = (char *)ft_calloc(sizeof(char), ft_strlen(str) + 3);
-	i = 0;
-	j = 0;
+	output = (char *)ft_calloc(sizeof(char), length);
 	if (output == NULL)
 		return (NULL);
-	while (str[i])
+	i = 0;
+	j = ft_strcpy(output, str);
+	while (temp[i])
 	{
-		if (str[i] != '"' && str[i] != '\'' )
+		k = 0;
+		while (temp[i][k])
 		{
-			output[j++] = str[i];
-			if (str[i] == '=')
-				output[j++] = '"';
+			if (temp[i][k] != '"' && temp[i][k] != '\'' )
+				output[j++] = temp[i][k];
+			k++;
 		}
+		if (i == 0)
+			output[j++] = '=';
+		output[j++] = '"';
 		i++;
 	}
-	output[j] = '"';
+	return (output);
+}
+
+char *ft_strjoin_w_quote(char *str1, char *str2)
+{
+	int		length;
+	char	*output;
+	char	**temp;
+
+	length = ft_strlen(str1) + ft_strlen(str2) + 3;
+	temp = ft_fsplit(str2, '=');
+	if (temp == NULL)
+		return (NULL);
+	output = ft_copy(temp, str1, length);
+	if (output == NULL)
+	{
+		free_double(temp);
+		return (NULL);
+	}
+	free_double(temp);
 	return (output);
 }

@@ -28,7 +28,7 @@ pid_t start_process(void)
 {
 	pid_t pid = fork();
 	if (pid == ERROR)
-		return (error());
+		return (sys_error());
 	wait(NULL);
 	return (pid);
 }

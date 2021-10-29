@@ -83,3 +83,55 @@ int	update_env_pwd(char **env)
 	}
 	return (EXIT_FAILURE);
 }
+
+int update_arg_env(char **env, char *arg, char *variable_name)
+{
+	int 	i;
+	char	**temp;
+
+	i = 0;
+	temp = ft_split(variable_name, ' ');
+	if (temp == NULL)
+		return (EXIT_FAILURE);
+	while (env[i])
+	{
+		if (ft_strnstr(env[i], temp[2], ft_strlen(temp[2])))
+		{
+			free(env[i]);
+			free_double(temp);
+			env[i] = ft_strdup_wout_quote(arg);
+			if (env[i] == NULL)
+				return (EXIT_FAILURE);
+			return (EXIT_SUCCESS);
+		}
+		i++;
+	}
+	free_double(temp);
+	return (EXIT_SUCCESS);
+}
+
+int	add_arg_env(t_env_export *env_export, char *arg)
+{
+	int		i;
+	char	**temp;
+	
+	i = 0;
+	temp = (char **)ft_calloc(sizeof(char *), ft_strlen_double((const char **)env_export->export) + 2);
+	if (temp == NULL)
+		return (EXIT_FAILURE);
+	while (env_export->env[i])
+	{
+		temp[i] = ft_strdup(env_export->env[i]);
+		if (temp[i] == NULL)
+		{
+			free_double(temp);
+			return (EXIT_FAILURE);
+		}
+		i++;
+	}
+	temp[i] = ft_strdup_wout_quote(arg);
+	temp[i + 1] = NULL;
+	free_double(env_export->env);
+	env_export->env = temp;
+	return (EXIT_SUCCESS);
+}

@@ -3,17 +3,26 @@
 
 # include "../../variables.h"
 
-int		ft_export(t_cmd *cmd);
-int		add_to_export(t_cmd *cmd);
-int		print_export(char **_export);
+//init
 int		*init_sort_table(const char **menv);
 int		*sort_table(const char **menv);
 char	**init_export(const char **menv);
-int		update_export(char **_export);
-int		update_export_old_pwd(char **_export);
-int		update_export_pwd(char **_export);
-int		export_exist(char **_export, char *variable_name);
-int 	update_arg_export(char **_export, char *arg, char *variable_name);
-int		add_export_w_equal(char **_export, char *arg);
+//export
+int		ft_export(t_cmd *cmd);
+int		add_to_export(t_cmd *cmd);
+int		print_export(char **export);
+//update
+int		update_export(char **export);
+int		update_export_old_pwd(char **export);
+int		update_export_pwd(char **export);
+//util
+int 	export_exist(char **export, char *variable_name);
+int 	update_arg_export(char **export, char *arg, char *variable_name);
+int		add_arg_export(t_env_export *env_export, char *arg);
+int		add_env_export(t_env_export *env_export, char *arg);
+int		update_arg_env_export(t_env_export *env_export, char *arg, char *variable_name);
+int		add_arg_env_export(t_env_export *env_export, char *arg);
+int		push_arg_export(t_env_export *env_export, char *arg);
+int		add_export(t_env_export *env_export, char *arg);
 
 #endif

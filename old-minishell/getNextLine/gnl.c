@@ -14,7 +14,7 @@ int		get_next_line(int fd, char **line)
 	while (1)
 	{
 		if (read(fd, temp, 1000) == ERROR)
-			return (error());
+			return (sys_error());
 		if (!check_line(temp, *line))
 			return (SUCCESS);
 		ft_realloc(*line);

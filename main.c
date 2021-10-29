@@ -11,12 +11,12 @@ int main(int ac, char **av, char **menv)
 
 	env_export = init_env_export((const char **)menv);
 	if (env_export == NULL)
-		return (error(NULL));
+		return (sys_error(NULL, NULL));
 	cmds = init_cmds(&env_export[0]);
 	if (cmds == NULL)
 	{
 		free(env_export);
-		return (error(NULL));
+		return (sys_error(NULL, NULL));
 	}
 	ret = ft_cmds(cmds);
 	free(cmds);

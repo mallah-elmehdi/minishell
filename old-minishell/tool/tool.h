@@ -9,7 +9,7 @@ int	ft_strcmp(const char *str1, const char *str2);
 int	ft_strcpy(char *dest, char *src);
 
 // error
-int error(void);
+int sys_error(void);
 
 // other
 int ft_strlen_v2(char **s);

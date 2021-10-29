@@ -21,3 +21,17 @@ char	*ft_strnstr(const char *str1, const char *str2, int n)
 	}
 	return (NULL);
 }
+
+char	*ft_strbstr(const char *str1, const char *str2)
+{
+	int	i;
+
+	i = 0;
+	while (str2[i])
+	{
+		if (str1[i] != str2[i])
+			return (NULL);
+		i++;
+	}
+	return ((char *)str2);
+}

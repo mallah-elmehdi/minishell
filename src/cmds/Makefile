@@ -5,7 +5,7 @@ FLAG = -Wall -Wextra -Werror
 FILE = cmds.c init.c
 
 $(NAME): $(FILE)
-	@gcc $(FLAG) $(SEG) -o $(FILE)
+	@gcc $(FLAG) $(SEG) -c $(FILE)
 	@ar -rc $(NAME) *.o 
 	
 all : $(NAME)

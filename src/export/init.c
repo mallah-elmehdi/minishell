@@ -41,7 +41,6 @@ int	*sort_table(const char **menv)
 	return (sorted);
 }
 
-
 char	**init_export(const char **menv)
 {
 	int		i;
@@ -60,7 +59,7 @@ char	**init_export(const char **menv)
 	}
 	while (menv[i])
 	{
-		export[i] = ft_strjoin("declare -x ", menv[sorted[i]]);
+		export[i] = ft_strjoin_w_quote("declare -x ", (char *)menv[sorted[i]]);
 		if (export[i] == NULL)
 		{
 			free_double(export);

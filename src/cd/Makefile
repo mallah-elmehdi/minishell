@@ -5,10 +5,10 @@ FLAG = -Wall -Wextra -Werror
 FILE = cd.c util.c
 
 $(NAME): $(FILE)
-	@gcc $(FLAG) $(SEG) -o $(FILE)
-	@ar -rc $(NAME) *.o 
+	@gcc $(FLAG) $(SEG) -c $(FILE)
+	@ar -rc $(NAME) *.o
 	
-all : $(NAME)
+all: $(NAME)
 
 clean:
 	@rm -fr *.o
