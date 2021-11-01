@@ -8,8 +8,8 @@ t_cmd	*init_cmds(t_env_export *env_export)
 	if (cmds == NULL)
 		return (NULL);
 	//cmds[0].arg = NULL;
-	cmds[0].arg = ft_split("ER===============================sdfkmklfdlk ok sala=okokokko", ' ');
-	cmds[0].cmd = ft_strdup("export");
+	cmds[0].arg = ft_split("PATH PWD", ' ');
+	cmds[0].cmd = ft_strdup("unset");
 	cmds[0].env_export = env_export;
 	return (cmds);
 }
@@ -17,9 +17,7 @@ t_cmd	*init_cmds(t_env_export *env_export)
 t_env_export	*init_env_export(const char **menv)
 {
 	t_env_export	*env_export;
-	int 			i;
 
-	i = 0;
 	env_export = (t_env_export *)ft_calloc(sizeof(t_env_export), 2);
 	if (env_export == NULL)
 		return (NULL);

@@ -16,7 +16,8 @@ int	print_export(char **export)
 	i = 0;
 	while (export[i])
 	{
-		printf("%s\n", export[i]);
+		if (ft_strbstr(export[i], "NaN") == NULL)
+			printf("%s\n", export[i]);
 		i++;
 	}
 	return (EXIT_SUCCESS);

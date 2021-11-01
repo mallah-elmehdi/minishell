@@ -5,10 +5,11 @@
 # include "util/util.h"
 
 // src
-# include "src/cmds/cmds.h"
+# include "src/cmd/cmd.h"
 # include "src/cd/cd.h"
 # include "src/env/env.h"
 # include "src/export/export.h"
 # include "src/pwd/pwd.h"
+# include "src/unset/unset.h"
 
 #endif

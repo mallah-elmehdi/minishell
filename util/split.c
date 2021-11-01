@@ -67,10 +67,8 @@ char	**ft_split(const char *str, char delim)
 {
 	char	**splited;
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
 	if (str == NULL)
 		return (NULL);
 	splited = (char **)ft_calloc(sizeof (char *), delim_length(str, delim) + 2);

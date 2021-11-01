@@ -26,5 +26,4 @@ char	**ft_fsplit(const char *str, char delim);
 char	*ft_copy(char **temp, char *str, int length);
 int		ft_isalpha(int a);
 
-
 #endif

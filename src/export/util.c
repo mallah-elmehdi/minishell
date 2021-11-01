@@ -54,7 +54,6 @@ int	add_arg_export(t_env_export *env_export, char *arg)
 		i++;
 	}
 	temp[i] = ft_strjoin_w_quote("declare -x ", arg);
-	temp[i + 1] = NULL;
 	free_double(env_export->export);
 	env_export->export = temp;
 	return (EXIT_SUCCESS);
@@ -88,19 +87,30 @@ int	add_arg_env_export(t_env_export *env_export, char *arg)
 int	add_env_export(t_env_export *env_export, char *arg)
 {
 	char	**temp;
+	char	*temp0;
 	char	*variable_name;
 
 	temp = ft_fsplit(arg, '=');
 	if (temp == NULL)
 		return (EXIT_FAILURE);
-	variable_name = ft_strjoin(ft_strjoin("declare -x ", temp[0]), "=");
+	temp0 = ft_strjoin("declare -x ", temp[0]);
+	if (temp0 == NULL)
+	{
+		free(temp);
+		return (EXIT_FAILURE);
+	}
+	variable_name = ft_strjoin(temp0, "=");
 	free_double(temp);
+	free(temp0);
 	if (variable_name == NULL)
 		return (EXIT_FAILURE);
 	if (export_exist(env_export->export, variable_name) == EXIT_SUCCESS)
 		return (update_arg_env_export(env_export, arg, variable_name));
 	else
+	{
+		free(variable_name);
 		return (add_arg_env_export(env_export, arg));
+	}
 	return (EXIT_SUCCESS);
 }
 

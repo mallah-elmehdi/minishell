@@ -62,10 +62,12 @@ char	**init_export(const char **menv)
 		export[i] = ft_strjoin_w_quote("declare -x ", (char *)menv[sorted[i]]);
 		if (export[i] == NULL)
 		{
+			free(sorted);
 			free_double(export);
 			return (NULL);
 		}
 		i++;
 	}
+	free(sorted);
 	return (export);
 }

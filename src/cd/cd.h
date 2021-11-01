@@ -3,7 +3,7 @@
 
 # include "../../variables.h"
 
-int		cd(t_cmd *cmd);
+int     cd(t_cmd *cmd);
 char	*home_path(char **env);
 char	*abs_path(const char *path, char **env);
 char	*cd_path(const char *path, char **env);
