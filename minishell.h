@@ -11,5 +11,7 @@
 # include "src/export/export.h"
 # include "src/pwd/pwd.h"
 # include "src/unset/unset.h"
+# include "src/utils/utils.h"
+# include "src/echo/echo.h"
 
 #endif

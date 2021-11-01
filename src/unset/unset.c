@@ -82,9 +82,12 @@ int	unset_env_export(t_cmd *cmd)
 	i = 0;
 	while (cmd->arg[i])
 	{
-		if (remove_arg_env_export(cmd->env_export, cmd->arg[i]) == EXIT_FAILURE)
-			return (EXIT_FAILURE);
+		if (valid_arg(cmd->arg[i]) == EXIT_SUCCESS)
+		{
+			if (remove_arg_env_export(cmd->env_export, cmd->arg[i]) == EXIT_FAILURE)
+				return (EXIT_FAILURE);
+		}
 		i++;
 	}
-	return (EXIT_SUCCESS);
+	return (valid_input(cmd));
 }

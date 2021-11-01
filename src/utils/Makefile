@@ -2,7 +2,7 @@ NAME = util.a
 SEG = -g -fsanitize=address
 FLAG = -Wall -Wextra -Werror
 
-FILE = calloc.c error.c free.c realloc.c split.c strcmp.c strdup.c strjoin.c strlen.c strnstr.c strcpy.c isalpha.c isalnum.c
+FILE = export_unset.c
 
 $(NAME): $(FILE)
 	@gcc $(FLAG) $(SEG) -c $(FILE)

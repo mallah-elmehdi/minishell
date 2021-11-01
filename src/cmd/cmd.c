@@ -32,6 +32,16 @@ int	ft_cmds(t_cmd *cmds)
 			if (unset(&cmds[i]) == EXIT_FAILURE)
 				return (sys_error(cmds[i].cmd, cmds[i].arg[0]));
 		}
+		else if (ft_strbstr(cmds[i].cmd, "echo"))
+		{
+			if (echo(&cmds[i]) == EXIT_FAILURE)
+				return (sys_error(cmds[i].cmd, cmds[i].arg[0]));
+		}
+		else if (ft_strbstr(cmds[i].cmd, "exit"))
+		{
+			if (ft_exit(&cmds[i]) == EXIT_FAILURE)
+				return (sys_error(cmds[i].cmd, cmds[i].arg[0]));
+		}
 		i++;
 	}
 	return (EXIT_SUCCESS);

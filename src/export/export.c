@@ -23,20 +23,6 @@ int	print_export(char **export)
 	return (EXIT_SUCCESS);
 }
 
-int	valid_export(t_cmd *cmd)
-{
-	int		i;
-
-	i = 0;
-	while (cmd->arg[i])
-	{
-		if (!ft_isalpha(cmd->arg[i][0]))
-			return (prg_error(cmd->cmd, cmd->arg[i], "not a valid identifier"));
-		i++;
-	}
-	return (EXIT_SUCCESS);
-}
-
 int	add_to_export(t_cmd *cmd)
 {
 	int i;
@@ -44,7 +30,7 @@ int	add_to_export(t_cmd *cmd)
 	i = 0;
 	while (cmd->arg[i])
 	{
-		if (ft_isalpha(cmd->arg[i][0]))
+		if (valid_arg(cmd->arg[i]) == EXIT_SUCCESS)
 		{
 			if (ft_strnstr(cmd->arg[i], "=", 1))
 			{
@@ -56,5 +42,5 @@ int	add_to_export(t_cmd *cmd)
 		}
 		i++;
 	}
-	return (valid_export(cmd));
+	return (valid_input(cmd));
 }

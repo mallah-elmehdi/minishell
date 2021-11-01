@@ -1,5 +1,5 @@
-#ifndef _CMDS_H
-#define _CMDS_H
+#ifndef _UTIL_H
+#define _UTIL_H
 
 # include "../variables.h"
 
@@ -25,5 +25,6 @@ char	*second_str(char *str, char delim);
 char	**ft_fsplit(const char *str, char delim);
 char	*ft_copy(char **temp, char *str, int length);
 int		ft_isalpha(int a);
+int		ft_isalnum(int a);
 
 #endif
