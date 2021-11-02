@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "util.h"
+#include "../minishell.h"
 
 long	ft_atoi(const char *str)
 {

@@ -35,5 +35,5 @@ int	prg_error(char *cmd, char *arg, char *msg, int status)
 int	prg_error_no_exit(char *cmd, char *msg)
 {
 	printf("minishell: %s: %s\n", cmd, msg);
-	return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
