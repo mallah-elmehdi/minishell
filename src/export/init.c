@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 14:22:36 by emallah           #+#    #+#             */
+/*   Updated: 2021/11/02 14:22:37 by emallah          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 int	*init_sort_table(const char **menv)
 {
-	int i;
+	int	i;
 	int	*sorted;
 
 	i = 0;
 	sorted = (int *)ft_calloc(sizeof(int), ft_strlen_double(menv));
 	if (sorted == NULL)
-		return (NULL);	
+		return (NULL);
 	while (menv[i])
 	{
 		sorted[i] = i;
@@ -19,8 +31,8 @@ int	*init_sort_table(const char **menv)
 
 int	*sort_table(const char **menv)
 {
-	int i;
-	int temp;
+	int	i;
+	int	temp;
 	int	*sorted;
 
 	i = 0;
@@ -41,13 +53,31 @@ int	*sort_table(const char **menv)
 	return (sorted);
 }
 
-char	**init_export(const char **menv)
+int	fill_export(const char **menv, char **export, int *sorted)
 {
 	int		i;
+
+	i = 0;
+	while (menv[i])
+	{
+		export[i] = ft_strjoin_w_quote("declare -x ", (char *)menv[sorted[i]]);
+		if (export[i] == NULL)
+		{
+			free(sorted);
+			free_double(export);
+			return (EXIT_FAILURE);
+		}
+		i++;
+	}
+	free(sorted);
+	return (EXIT_SUCCESS);
+}
+
+char	**init_export(const char **menv)
+{
 	int		*sorted;
 	char	**export;
 
-	i = 0;
 	sorted = sort_table(menv);
 	if (sorted == NULL)
 		return (NULL);
@@ -57,17 +87,7 @@ char	**init_export(const char **menv)
 		free(sorted);
 		return (NULL);
 	}
-	while (menv[i])
-	{
-		export[i] = ft_strjoin_w_quote("declare -x ", (char *)menv[sorted[i]]);
-		if (export[i] == NULL)
-		{
-			free(sorted);
-			free_double(export);
-			return (NULL);
-		}
-		i++;
-	}
-	free(sorted);
+	if (fill_export(menv, export, sorted) == EXIT_FAILURE)
+		return (NULL);
 	return (export);
 }

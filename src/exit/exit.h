@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   realloc.c                                          :+:      :+:    :+:   */
+/*   exit.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 13:18:21 by emallah           #+#    #+#             */
-/*   Updated: 2021/11/02 13:18:24 by emallah          ###   ########.fr       */
+/*   Created: 2021/11/02 13:43:49 by emallah           #+#    #+#             */
+/*   Updated: 2021/11/02 13:43:52 by emallah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../minishell.h"
+#ifndef EXIT_H
+# define EXIT_H
 
-//void	*ft_realloc(int a, int size)
-//{
-//	void	*new_ptr;
+# include "../../variables.h"
 
-//	new_ptr = ft_calloc(sizeof(ptr), size);
-//	if (new_ptr == NULL)
-//		return (NULL);
-//	return (new_ptr);
-//}
+int		valid_arg_exit(char *arg);
+int		ft_exit(t_cmd *cmd);
+
+#endif

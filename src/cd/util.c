@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   util.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 13:32:13 by emallah           #+#    #+#             */
+/*   Updated: 2021/11/02 13:32:15 by emallah          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 char	*home_path(char **env)
@@ -25,10 +37,23 @@ char	*home_path(char **env)
 	return (NULL);
 }
 
+char	*joined_abs_path(char *env, char *path_w_slash)
+{
+	char	**temp;
+	char	*joined_path;
+
+	temp = ft_split(env, '=');
+	if (temp == NULL)
+		return (NULL);
+	joined_path = ft_strjoin(temp[1], path_w_slash);
+	free_double(temp);
+	free(path_w_slash);
+	return (joined_path);
+}
+
 char	*abs_path(const char *path, char **env)
 {
 	int		i;
-	char	**temp;
 	char	*path_w_slash;
 	char	*joined_path;
 
@@ -40,12 +65,7 @@ char	*abs_path(const char *path, char **env)
 	{
 		if (ft_strnstr(env[i], "PWD", 3))
 		{
-			temp = ft_split(env[i], '=');
-			if (temp == NULL)
-				return (NULL);
-			joined_path = ft_strjoin(temp[1], path_w_slash);
-			free_double(temp);
-			free(path_w_slash);
+			joined_path = joined_abs_path(env[i], path_w_slash);
 			if (joined_path == NULL)
 				return (NULL);
 			return (joined_path);

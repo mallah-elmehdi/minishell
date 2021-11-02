@@ -1,5 +1,5 @@
-#ifndef _MINISHELL_H
-#define _MINISHELL_H
+#ifndef MINISHELL_H
+# define MINISHELL_H
 
 // util
 # include "util/util.h"
@@ -13,5 +13,6 @@
 # include "src/unset/unset.h"
 # include "src/utils/utils.h"
 # include "src/echo/echo.h"
+# include "src/exit/exit.h"
 
 #endif

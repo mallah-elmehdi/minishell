@@ -1,5 +1,5 @@
-#ifndef _VARIABLES_H
-#define _VARIABLES_H
+#ifndef VARIABLES_H
+# define VARIABLES_H
 
 # include <stdio.h>
 # include <stdlib.h>

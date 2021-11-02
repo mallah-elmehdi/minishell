@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   strcmp.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 13:18:40 by emallah           #+#    #+#             */
+/*   Updated: 2021/11/02 13:18:43 by emallah          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../minishell.h"
 
 int	ft_strcmp(const char *str1, const char *str2)
@@ -6,8 +18,8 @@ int	ft_strcmp(const char *str1, const char *str2)
 	unsigned char	*p0;
 	unsigned char	*p1;
 
-	p0 = (unsigned char*)str1;
-	p1 = (unsigned char*)str2;
+	p0 = (unsigned char *)str1;
+	p1 = (unsigned char *)str2;
 	i = 0;
 	while (i <= ft_strlen(str1) && i <= ft_strlen(str2))
 	{

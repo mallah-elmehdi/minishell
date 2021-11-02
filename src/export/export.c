@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   export.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 14:22:30 by emallah           #+#    #+#             */
+/*   Updated: 2021/11/02 14:22:32 by emallah          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 int	ft_export(t_cmd *cmd)
@@ -25,7 +37,7 @@ int	print_export(char **export)
 
 int	add_to_export(t_cmd *cmd)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (cmd->arg[i])
@@ -34,11 +46,14 @@ int	add_to_export(t_cmd *cmd)
 		{
 			if (ft_strnstr(cmd->arg[i], "=", 1))
 			{
-				if (add_env_export(cmd->env_export, cmd->arg[i]) == EXIT_FAILURE)
-					return (sys_error(cmd->cmd, cmd->arg[i]));
+				if (add_env_export(cmd->env_export, cmd->arg[i])
+					== EXIT_FAILURE)
+					return (sys_error(cmd->cmd, cmd->arg[i],
+							cmd->status->last_status));
 			}
 			else if (add_export(cmd->env_export, cmd->arg[i]) == EXIT_FAILURE)
-				return (sys_error(cmd->cmd, cmd->arg[i]));
+				return (sys_error(cmd->cmd, cmd->arg[i],
+						cmd->status->last_status));
 		}
 		i++;
 	}

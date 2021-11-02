@@ -1,11 +1,24 @@
-#ifndef _UTIL_H
-#define _UTIL_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   util.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 13:17:22 by emallah           #+#    #+#             */
+/*   Updated: 2021/11/02 13:17:26 by emallah          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef UTIL_H
+# define UTIL_H
 
 # include "../variables.h"
 
 void	*ft_calloc(int a, int b);
-int		sys_error(char *cmd, char *arg);
-int		prg_error(char *cmd, char *arg, char *msg);
+int		sys_error(char *cmd, char *arg, int status);
+int		prg_error(char *cmd, char *arg, char *msg, int status);
+int		prg_error_no_exit(char *cmd, char *msg);
 void	free_double(char **double_ptr);
 char	*fill_str(const char *str, char delim, int part);
 char	**ft_split(const char *str, char delim);
@@ -13,7 +26,7 @@ int		ft_strcmp(const char *str1, const char *str2);
 char	*ft_strdup(const char *str);
 size_t	lenth(const char *s, const char *s0);
 char	*ft_strjoin(const char *s, const char *s0);
-char 	*ft_strjoin_w_quote(char *str1, char *str2);
+char	*ft_strjoin_w_quote(char *str1, char *str2);
 int		ft_strlen(const char *str);
 int		ft_strlen_double(const char **str);
 char	*ft_strnstr(const char *str1, const char *str2, int n);
@@ -26,5 +39,7 @@ char	**ft_fsplit(const char *str, char delim);
 char	*ft_copy(char **temp, char *str, int length);
 int		ft_isalpha(int a);
 int		ft_isalnum(int a);
+int		ft_isdigit(int a);
+long	ft_atoi(const char *str);
 
 #endif

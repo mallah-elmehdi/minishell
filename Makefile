@@ -3,7 +3,7 @@ NAME = minishell
 SEG = -g -fsanitize=address
 FLAG = -Wall -Wextra -Werror
 
-LIB = src/cmd/cmd.a src/cd/cd.a src/env/env.a src/export/export.a src/pwd/pwd.a src/unset/unset.a src/utils/util.a src/echo/echo.a util/util.a
+LIB = src/cmd/cmd.a src/cd/cd.a src/env/env.a src/export/export.a src/pwd/pwd.a src/unset/unset.a src/utils/util.a src/echo/echo.a src/exit/exit.a util/util.a
 OBJ = *.o
 
 MAIN = main.c
@@ -32,6 +32,7 @@ src_all:
 	@make -C src/unset
 	@make -C src/utils
 	@make -C src/echo
+	@make -C src/exit
 src_clean:
 	@make clean -C src/cd
 	@make clean -C src/cmd
@@ -41,6 +42,7 @@ src_clean:
 	@make clean -C src/unset
 	@make clean -C src/utils
 	@make clean -C src/echo
+	@make clean -C src/exit
 src_fclean:
 	@make fclean -C src/cd
 	@make fclean -C src/cmd
@@ -50,6 +52,7 @@ src_fclean:
 	@make fclean -C src/unset
 	@make fclean -C src/utils
 	@make fclean -C src/echo
+	@make fclean -C src/exit
 src_re:
 	@make re -C src/cd
 	@make re -C src/cmd
@@ -59,6 +62,7 @@ src_re:
 	@make re -C src/unset
 	@make re -C src/utils
 	@make re -C src/echo
+	@make re -C src/exit
 
 
 util_all:

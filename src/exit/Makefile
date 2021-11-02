@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: emallah <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/02 13:42:32 by emallah           #+#    #+#              #
-#    Updated: 2021/11/02 13:42:34 by emallah          ###   ########.fr        #
+#    Created: 2021/11/02 14:21:51 by emallah           #+#    #+#              #
+#    Updated: 2021/11/02 14:21:52 by emallah          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = echo.a
+NAME = exit.a
 SEG = -g -fsanitize=address
 FLAG = -Wall -Wextra -Werror
 
-FILE = echo.c
+FILE = exit.c
 
 $(NAME): $(FILE)
 	@gcc $(FLAG) $(SEG) -c $(FILE)

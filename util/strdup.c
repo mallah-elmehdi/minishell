@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   strdup.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 13:18:52 by emallah           #+#    #+#             */
+/*   Updated: 2021/11/02 13:18:54 by emallah          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../minishell.h"
 
 char	*ft_strdup(const char *str)
 {
-	int	i;
-	int	slen;
+	int		i;
+	int		slen;
 	char	*p;
 
 	slen = ft_strlen((str)) + 1;
@@ -21,9 +33,9 @@ char	*ft_strdup(const char *str)
 
 char	*ft_strdup_wout_quote(const char *str)
 {
-	int	i;
-	int	j;
-	int	slen;
+	int		i;
+	int		j;
+	int		slen;
 	char	*p;
 
 	slen = ft_strlen((str)) + 1;
