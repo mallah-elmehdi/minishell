@@ -18,4 +18,7 @@
 # include "src/exit/exit.h"
 # include "src/other/other.h"
 
+//init
+# include "init/init.h"
+
 #endif
