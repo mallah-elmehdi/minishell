@@ -14,5 +14,6 @@
 # include "src/utils/utils.h"
 # include "src/echo/echo.h"
 # include "src/exit/exit.h"
+# include "src/other/other.h"
 
 #endif

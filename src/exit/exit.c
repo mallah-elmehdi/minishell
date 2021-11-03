@@ -35,7 +35,10 @@ int	ft_exit(t_cmd *cmd)
 	if (length == 0)
 		exit(cmd->status->last_status);
 	else if (valid_arg_exit(cmd->arg[0]) == EXIT_FAILURE)
-		prg_error(cmd->cmd, cmd->arg[0], "numeric argument required", 1);
+	{
+		prg_error(cmd->cmd, cmd->arg[0], "numeric argument required");
+		exit (1);
+	}
 	else if (length == 1)
 		exit(ft_atoi(cmd->arg[0]));
 	else

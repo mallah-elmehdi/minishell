@@ -16,10 +16,11 @@
 # include "../variables.h"
 
 void	*ft_calloc(int a, int b);
-int		sys_error(char *cmd, char *arg, int status);
-int		prg_error(char *cmd, char *arg, char *msg, int status);
+int		sys_error(char *cmd, char *arg);
+int		prg_error(char *cmd, char *arg, char *msg);
 int		prg_error_no_exit(char *cmd, char *msg);
 void	free_double(char **double_ptr);
+char	**free_splited(char **splited, int i);
 char	*fill_str(const char *str, char delim, int part);
 char	**ft_split(const char *str, char delim);
 int		ft_strcmp(const char *str1, const char *str2);

@@ -20,8 +20,8 @@ t_cmd	*init_cmds(t_env_export *env_export, t_last_status *last_status)
 	if (cmds == NULL)
 		return (NULL);
 	//cmds[0].arg = NULL;
-	cmds[0].arg = ft_split("10 s", ' ');
-	cmds[0].cmd = ft_strdup("exit");
+	cmds[0].arg = ft_split("ls -a", ' ');
+	cmds[0].cmd = ft_strdup("ls");
 	cmds[0].env_export = env_export;
 	cmds[0].status = last_status;
 	return (cmds);

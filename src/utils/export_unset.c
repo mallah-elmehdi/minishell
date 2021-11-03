@@ -37,7 +37,7 @@ int	valid_input(t_cmd *cmd)
 	{
 		if (valid_arg(cmd->arg[i]) == EXIT_FAILURE)
 			return (prg_error(cmd->cmd, cmd->arg[i],
-					"not a valid identifier", cmd->status->last_status));
+					"not a valid identifier"));
 		i++;
 	}
 	return (EXIT_SUCCESS);

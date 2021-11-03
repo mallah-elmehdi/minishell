@@ -48,12 +48,10 @@ int	add_to_export(t_cmd *cmd)
 			{
 				if (add_env_export(cmd->env_export, cmd->arg[i])
 					== EXIT_FAILURE)
-					return (sys_error(cmd->cmd, cmd->arg[i],
-							cmd->status->last_status));
+					return (sys_error(cmd->cmd, cmd->arg[i]));
 			}
 			else if (add_export(cmd->env_export, cmd->arg[i]) == EXIT_FAILURE)
-				return (sys_error(cmd->cmd, cmd->arg[i],
-						cmd->status->last_status));
+				return (sys_error(cmd->cmd, cmd->arg[i]));
 		}
 		i++;
 	}

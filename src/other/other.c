@@ -31,6 +31,7 @@ char	*get_cmd_path(char *cmd, char **env)
 	char	*cmd_path;
 
 	i = 0;
+	all_paths = NULL;
 	while (env[i])
 	{
 		if (ft_strnstr(env[i], "PATH=", 5))
@@ -58,9 +59,10 @@ int	other(t_cmd *cmd)
 	if (the_cmd == NULL)
 	{
 		free (the_cmd);
-		prg_error(cmd->cmd, NULL, "command not found", 1);
+		cmd->status->last_status = 1;
+		return (prg_error(cmd->cmd, NULL, "command not found"));
 	}
-	if (execve(the_cmd, cmd->arg, env) == -1)
+	if (execve(the_cmd, cmd->arg, cmd->env_export->env) == -1)
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

@@ -12,24 +12,22 @@
 
 #include "../minishell.h"
 
-int	sys_error(char *cmd, char *arg, int status)
+int	sys_error(char *cmd, char *arg)
 {
 	if (cmd)
 		printf("minishell: %s: %s: %s\n", cmd, arg, strerror(errno));
 	else
 		printf("minishell: %s\n", strerror(errno));
-	exit(status);
-	return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
-int	prg_error(char *cmd, char *arg, char *msg, int status)
+int	prg_error(char *cmd, char *arg, char *msg)
 {
 	if (arg)
 		printf("minishell: %s: %s: %s\n", cmd, arg, msg);
 	else
 		printf("minishell: %s: %s\n", cmd, msg);
-	exit(status);
-	return (EXIT_FAILURE);
+	return (EXIT_SUCCESS);
 }
 
 int	prg_error_no_exit(char *cmd, char *msg)
