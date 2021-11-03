@@ -13,8 +13,6 @@
 #ifndef OTHER_H
 # define OTHER_H
 
-# include "../../variables.h"
-
 char	*try_all_paths(char **all_paths, char *cmd);
 char	*get_cmd_path(char *cmd, char **env);
 int		other(t_cmd *cmd);

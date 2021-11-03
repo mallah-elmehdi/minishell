@@ -14,7 +14,7 @@ NAME = cmd.a
 SEG = -g -fsanitize=address
 FLAG = -Wall -Wextra -Werror
 
-FILE = cmd.c init.c
+FILE = cmd.c
 
 $(NAME): $(FILE)
 	@gcc $(FLAG) $(SEG) -c $(FILE)

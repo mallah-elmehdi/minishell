@@ -13,8 +13,6 @@
 #ifndef EXIT_H
 # define EXIT_H
 
-# include "../../variables.h"
-
 int		valid_arg_exit(char *arg);
 int		ft_exit(t_cmd *cmd);
 

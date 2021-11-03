@@ -13,7 +13,7 @@
 #ifndef UTIL_H
 # define UTIL_H
 
-# include "../variables.h"
+
 
 void	*ft_calloc(int a, int b);
 int		sys_error(char *cmd, char *arg);

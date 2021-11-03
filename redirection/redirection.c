@@ -1,4 +1,4 @@
-#include "redirection.h"
+#include "../minishell.h"
 
 void	redirection(int fdin, int fdout)
 {

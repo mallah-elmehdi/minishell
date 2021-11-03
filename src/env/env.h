@@ -13,8 +13,6 @@
 #ifndef ENV_H
 # define ENV_H
 
-# include "../../variables.h"
-
 int		env(char **env);
 char	**init_env(const char **menv);
 int		update_env(char **env);

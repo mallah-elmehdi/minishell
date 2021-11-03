@@ -13,8 +13,6 @@
 #ifndef EXPORT_H
 # define EXPORT_H
 
-# include "../../variables.h"
-
 int		*init_sort_table(const char **menv);
 int		*sort_table(const char **menv);
 char	**init_export(const char **menv);

@@ -13,8 +13,6 @@
 #ifndef CD_H
 # define CD_H
 
-# include "../../variables.h"
-
 int		cd(t_cmd *cmd);
 char	*home_path(char **env);
 char	*joined_abs_path(char *env, char *path_w_slash);

@@ -13,8 +13,6 @@
 #ifndef ECHO_H
 # define ECHO_H
 
-# include "../../variables.h"
-
 int		echo(t_cmd *cmd);
 
 #endif
