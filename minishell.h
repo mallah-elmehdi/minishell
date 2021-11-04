@@ -3,22 +3,24 @@
 
 # include "variables.h"
 
-// util
-# include "util/util.h"
+// parsing
+# include "parsing/libft/libft.h"
 
-// src
-# include "src/cmd/cmd.h"
-# include "src/cd/cd.h"
-# include "src/env/env.h"
-# include "src/export/export.h"
-# include "src/pwd/pwd.h"
-# include "src/unset/unset.h"
-# include "src/utils/utils.h"
-# include "src/echo/echo.h"
-# include "src/exit/exit.h"
-# include "src/other/other.h"
+# include "parsing/lexer/lexer.h"
+# include "parsing/parser/tokens.h"
 
-//init
-# include "init/init.h"
+//execution
+# include "execution/util/util.h"
+# include "execution/src/cmd/cmd.h"
+# include "execution/src/cd/cd.h"
+# include "execution/src/env/env.h"
+# include "execution/src/export/export.h"
+# include "execution/src/pwd/pwd.h"
+# include "execution/src/unset/unset.h"
+# include "execution/src/utils/utils.h"
+# include "execution/src/echo/echo.h"
+# include "execution/src/exit/exit.h"
+# include "execution/src/other/other.h"
+# include "execution/init/init.h"
 
 #endif

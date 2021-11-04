@@ -1,44 +1,31 @@
 #include "minishell.h"
 
-int	main(int ac, char **av, char **menv)
+int main(int argc, char **argv, char **arge)
 {
-	if (ac)
-		av[0] = NULL;
-	t_cmd	*cmds;
-	//t_env_export	*env_export;
-	//t_last_status	*last_status;
+	char	*cmdline_buf;
+	t_env_export *env_export;
+	t_lexer	*s_lexer;
 
-	//env_export = init_env_export((const char **)menv);
-	//if (env_export == NULL)
-	//	return (sys_error(NULL, NULL));
-	//last_status = init_last_status();
-	//if (last_status == NULL)
-	//{
-	//	free(env_export);
-	//	return (sys_error(NULL, NULL));
-	//}
-	//cmds = init_cmds(&env_export[0], &last_status[0]);
-	//if (cmds == NULL)
-	//{
-	//	free(env_export);
-	//	free(last_status);
-	//	return (sys_error(NULL, NULL));
-	//}
-	cmds = ft_init(menv);
-	if (cmds == NULL)
-		return (EXIT_FAILURE);
-	if (ft_cmds(cmds) == EXIT_FAILURE)
+	env_export = init_env_export((const char **)arge);
+	while (1)
 	{
-		free_all(cmds);
-		return (EXIT_FAILURE);
+		(void)argc;
+		(void)*argv;
+		cmdline_buf = readline("$ ");
+		if (!cmdline_buf)
+		{
+			clear_history();
+			exit(1);
+		}
+		if (cmdline_buf[0] != '\0')
+		{
+			add_history(cmdline_buf);
+			s_lexer = init_lexer(cmdline_buf);
+			parse_and_execute(s_lexer, env_export);
+			free(cmdline_buf);
+			free(s_lexer);
+		}
 	}
-	free_all(cmds);
-	//free_double(cmds[0].arg);
-	//free(cmds[0].cmd);
-	//free(cmds);
-	//free_double(env_export->env);
-	//free_double(env_export->export);
-	//free(env_export);
-	//free(last_status);
-	return (EXIT_SUCCESS);
+	clear_history();
+	return (0);
 }
