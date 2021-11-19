@@ -1,68 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   other.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isghioua <isghioua@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/15 15:43:35 by emallah           #+#    #+#             */
+/*   Updated: 2021/11/17 22:04:03 by isghioua         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../../minishell.h"
 
-char	*try_all_paths(char **all_paths, char *cmd)
+int	other(t_ast *s_ast, t_env_export *env_export)
 {
-	int		i;
-	char	*path_w_slash;
-	char	*candidate_path;
+	int		status;
+	pid_t	pid;
 
-	i = 0;
-	while (all_paths[i])
-	{
-		path_w_slash = ft_strjoin(all_paths[i], "/");
-		if (path_w_slash == NULL)
-			return (NULL);
-		candidate_path = ft_strjoin(path_w_slash, cmd);
-		free(path_w_slash);
-		if (candidate_path == NULL)
-			return (NULL);
-		if (access(candidate_path, F_OK) == 0)
-			return (candidate_path);
-		free(candidate_path);
-		i++;
-	}
-	return (NULL);
-}
-
-char	*get_cmd_path(char *cmd, char **env)
-{
-	int		i;
-	char	**all_paths;
-	char	*cmd_path;
-
-	i = 0;
-	all_paths = NULL;
-	while (env[i])
-	{
-		if (ft_fstrnstr(env[i], "PATH=", 5))
-		{
-			all_paths = ft_split(env[i] + 5, ':');
-			if (all_paths == NULL)
-				return (NULL);
-			break ;
-		}
-		i++;
-	}
-	cmd_path = try_all_paths(all_paths, cmd);
-	free_double(all_paths);
-	return (cmd_path);
-}
-
-int	other(t_cmd *cmd)
-{
-	char	*the_cmd;
-
-	if (cmd->cmd[0] == '/')
-		the_cmd = ft_strdup(cmd->cmd);
-	else
-		the_cmd = get_cmd_path(cmd->cmd, cmd->env_export->env);
-	if (the_cmd == NULL)
-	{
-		free (the_cmd);
-		cmd->status->last_status = 1;
-		return (prg_error(cmd->cmd, NULL, "command not found"));
-	}
-	if (execve(the_cmd, cmd->arg, cmd->env_export->env) == -1)
-		return (EXIT_FAILURE);
+	g_global.global = 1;
+	pid = fork();
+	if (pid == -1)
+		return (ERROR);
+	else if (pid == 0)
+		run_cmd(s_ast, env_export);
+	waitpid(pid, &status, 0);
+	g_global.global = 0;
+	if (WEXITSTATUS(status) != 0)
+		g_global.status = WEXITSTATUS(status);
+	else if (WIFSIGNALED(status) && (WTERMSIG(status) + 128 != 141))
+		g_global.status = WTERMSIG(status) + 128;
 	return (EXIT_SUCCESS);
+}
+
+void	run_cmd(t_ast *s_ast, t_env_export *env_export)
+{
+	if (str_includes(s_ast->argv[0], '/') == EXIT_SUCCESS)
+		rum_cmd_abs_path(s_ast, env_export);
+	else
+		rum_cmd_env_path(s_ast, env_export);
 }

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: emallah <emallah@1337.ma>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:18:29 by emallah           #+#    #+#             */
 /*   Updated: 2021/11/02 13:18:36 by emallah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "util.h"
+#include "../../minishell.h"
 
 int	delim_length(char const *str, char delim)
 {
@@ -75,7 +75,7 @@ char	*fill_str(const char *str, char delim, int part)
 	return (temp);
 }
 
-char	**ft_split(const char *str, char delim)
+char	**ft_fsplit(const char *str, char delim)
 {
 	char	**splited;
 	int		i;
@@ -83,7 +83,8 @@ char	**ft_split(const char *str, char delim)
 	i = 0;
 	if (str == NULL)
 		return (NULL);
-	splited = (char **)ft_fcalloc(sizeof (char *), delim_length(str, delim) + 2);
+	splited = (char **)ft_fcalloc(sizeof (char *),
+			delim_length(str, delim) + 2);
 	if (splited == NULL)
 		return (NULL);
 	while (i < delim_length(str, delim) + 1)

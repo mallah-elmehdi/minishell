@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_size_of_table.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isghioua <isghioua@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/05 21:43:04 by isghioua          #+#    #+#             */
+/*   Updated: 2021/11/12 19:07:19 by isghioua         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
-int get_size_of_table(char **table)
+int	get_size_of_table(char **table)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (table[i])
-        i++;
-    return (i);
+	i = 0;
+	while (table[i])
+		i++;
+	return (i);
 }

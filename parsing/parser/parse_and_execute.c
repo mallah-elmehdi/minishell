@@ -6,7 +6,7 @@
 /*   By: isghioua <isghioua@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 13:38:46 by isghioua          #+#    #+#             */
-/*   Updated: 2021/10/13 18:03:21 by isghioua         ###   ########.fr       */
+/*   Updated: 2021/11/17 04:08:42 by isghioua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,24 @@ int	parse_and_execute(t_lexer *s_lexer, t_env_export *env_export)
 	t_ast	*s_ast;
 
 	s_token = tokenize(s_lexer);
-	if (s_token->type == TOKEN_EOF) // $       |
-		return (0);
-	while (s_token->type != TOKEN_EOF)
+	if (s_token->e_type == TOKEN_EOF)
 	{
-		
-		// if (;)
+		free_token(&s_token);
+		free_lexer(&s_lexer);
+		return (0);
+	}
+	while (s_token->e_type != TOKEN_EOF)
+	{
 		s_ast = parse_command(&s_token, s_lexer, env_export->env);
 		if (!s_ast)
 		{
-			//free_cmd_tree(s_ast);
-			break ;
+			g_global.status = 258;
+			return (1);
 		}
-		// execute_command(s_ast, env_export);		
-		//free_cmd_tree(s_cmd);
-
-		//	printf("Token[%d]=[%s]\n", s_token->type, s_token->value);
-		//	s_token = tokenize(s_lexer);
+		execute_command(s_ast, env_export);
 	}
-	//printf("Token[%d]=[%s]\n", s_token->type, s_token->value);
-	return (1);
+	free_ast(&s_ast);
+	free_token(&s_token);
+	free_lexer(&s_lexer);
+	return (0);
 }

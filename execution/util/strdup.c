@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   strdup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: emallah <emallah@1337.ma>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:18:52 by emallah           #+#    #+#             */
 /*   Updated: 2021/11/02 13:18:54 by emallah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "util.h"
+#include "../../minishell.h"
 
-char	*ft_strdup(const char *str)
+char	*ft_fstrdup(const char *str)
 {
 	int		i;
 	int		slen;
@@ -31,7 +31,7 @@ char	*ft_strdup(const char *str)
 	return (p);
 }
 
-char	*ft_strdup_wout_quote(const char *str)
+char	*ft_fstrdup_wout_quote(const char *str)
 {
 	int		i;
 	int		j;

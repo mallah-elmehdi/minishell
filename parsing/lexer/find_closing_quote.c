@@ -29,6 +29,6 @@ int	find_closing_quote(char	*str, int index, char char_quote)
 			break ;
 	}
 	if (str[index] == '\0')
-		return (0);
+		return (-1);
 	return (count);
 }

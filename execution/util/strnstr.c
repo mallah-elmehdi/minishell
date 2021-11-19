@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   strnstr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: emallah <emallah@1337.ma>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:19:15 by emallah           #+#    #+#             */
 /*   Updated: 2021/11/02 13:19:16 by emallah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "util.h"
+#include "../../minishell.h"
 
 char	*ft_fstrnstr(const char *str1, const char *str2, int n)
 {
@@ -39,6 +39,22 @@ char	*ft_strbstr(const char *str1, const char *str2)
 	int	i;
 
 	i = 0;
+	while (str2[i])
+	{
+		if (str1[i] != str2[i])
+			return (NULL);
+		i++;
+	}
+	return ((char *)str2);
+}
+
+char	*ft_strcstr(const char *str1, const char *str2)
+{
+	int	i;
+
+	i = 0;
+	if (ft_fstrlen(str1) != ft_fstrlen(str2))
+		return (NULL);
 	while (str2[i])
 	{
 		if (str1[i] != str2[i])

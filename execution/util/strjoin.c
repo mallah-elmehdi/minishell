@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   strjoin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: emallah <emallah@1337.ma>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:18:57 by emallah           #+#    #+#             */
 /*   Updated: 2021/11/02 13:19:01 by emallah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "util.h"
+#include "../../minishell.h"
 
 size_t	lenth(const char *s, const char *s0)
 {
@@ -22,7 +22,7 @@ size_t	lenth(const char *s, const char *s0)
 		return (ft_fstrlen(s) + ft_fstrlen(s0) + 1);
 }
 
-char	*ft_strjoin(const char *s, const char *s0)
+char	*ft_fstrjoin(const char *s, const char *s0)
 {
 	char	*p;
 	size_t	j;

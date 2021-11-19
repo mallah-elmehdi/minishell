@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   strcpy.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: emallah <emallah@1337.ma>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:18:47 by emallah           #+#    #+#             */
 /*   Updated: 2021/11/02 13:18:48 by emallah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "util.h"
+#include "../../minishell.h"
 
 int	ft_strcpy(char *dest, char *src)
 {

@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   echo.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: emallah <emallah@1337.ma>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:41:11 by emallah           #+#    #+#             */
 /*   Updated: 2021/11/02 13:41:14 by emallah          ###   ########.fr       */
@@ -13,6 +13,7 @@
 #ifndef ECHO_H
 # define ECHO_H
 
-int		ft_echo(t_cmd *cmd);
+int	ft_echo(t_ast *s_ast);
+int	valid_opt(char *opt);
 
 #endif

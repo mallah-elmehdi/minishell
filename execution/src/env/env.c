@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: emallah <emallah@1337.ma>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:45:06 by emallah           #+#    #+#             */
 /*   Updated: 2021/11/02 13:45:08 by emallah          ###   ########.fr       */
@@ -12,15 +12,14 @@
 
 #include "../../../minishell.h"
 
-int	env(char **env)
+int	ft_env(char **env)
 {
 	int		i;
 
 	i = 0;
 	while (env[i])
 	{
-		if (ft_strbstr(env[i], "NaN") == NULL)
-			printf("%s\n", env[i]);
+		printf("%s\n", env[i]);
 		i++;
 	}
 	return (EXIT_SUCCESS);

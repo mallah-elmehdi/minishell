@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_ast.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isghioua <isghioua@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/05 21:43:07 by isghioua          #+#    #+#             */
+/*   Updated: 2021/11/09 18:11:28 by isghioua         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
 
 /* To test if memset work fine:
@@ -12,6 +24,6 @@ t_ast	*init_ast(int type)
 
 	s_cmd = malloc(sizeof(t_ast));
 	ft_memset(s_cmd, '\0', sizeof(t_ast));
-	s_cmd->type = type;
+	s_cmd->e_type = type;
 	return (s_cmd);
 }

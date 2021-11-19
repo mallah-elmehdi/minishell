@@ -1,4 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   expand_dollar_sign.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: isghioua <isghioua@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/05 21:16:02 by isghioua          #+#    #+#             */
+/*   Updated: 2021/11/18 04:08:28 by isghioua         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../minishell.h"
+
+char	*other_cases(int next_char, char *content, int index)
+{
+	char	*str;
+
+	if (content[next_char] == '?')
+		str = ft_itoa(g_global.status);
+	else
+		str = ft_substr(content, index, 2);
+	return (str);
+}
 
 char	*expand_dollar_sign(char *content, int *index, char **table_of_env_var)
 {
@@ -19,12 +42,10 @@ char	*expand_dollar_sign(char *content, int *index, char **table_of_env_var)
 	}
 	else
 	{
-		if  (content[next_char] == '?')
-			str = ft_itoa(0);
-		else
-			str = ft_substr(content, *index, 2);
-		*index += 2;
+		if (content[next_char] == '\0')
+			return (ft_strdup("$"));
+		str = other_cases(next_char, content, *index);
+		*index += 1;
 	}
 	return (str);
 }
-

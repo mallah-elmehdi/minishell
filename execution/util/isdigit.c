@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   isdigit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: emallah <emallah@1337.ma>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:20:32 by emallah           #+#    #+#             */
 /*   Updated: 2021/11/02 13:20:33 by emallah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "util.h"
+#include "../../minishell.h"
 
-int	ft_isdigit(int a)
+int	ft_fisdigit(int a)
 {
 	if (a >= 48 && a <= 57)
 		return (1);

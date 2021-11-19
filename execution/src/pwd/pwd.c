@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: emallah <emallah@1337.ma>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 15:01:04 by emallah           #+#    #+#             */
 /*   Updated: 2021/11/02 15:01:05 by emallah          ###   ########.fr       */
@@ -16,10 +16,10 @@ char	*pwd(void)
 {
 	char	*pwd;
 
-	pwd = (char *)ft_fcalloc(sizeof(char), 256);
+	pwd = (char *)ft_fcalloc(sizeof(char), 1024);
 	if (pwd == NULL)
 		return (NULL);
-	pwd = getcwd(pwd, sizeof(char) * 256);
+	pwd = getcwd(pwd, sizeof(char) * 1024);
 	if (pwd == NULL)
 		return (NULL);
 	return (pwd);
@@ -31,7 +31,8 @@ int	print_pwd(void)
 
 	path = pwd();
 	if (path == NULL)
-		return (EXIT_FAILURE);
+		return (ERROR);
 	printf("%s\n", path);
+	free(path);
 	return (EXIT_SUCCESS);
 }

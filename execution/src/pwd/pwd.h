@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 15:00:55 by emallah           #+#    #+#             */
-/*   Updated: 2021/11/02 15:00:57 by emallah          ###   ########.fr       */
+/*   Created: 2021/11/18 17:46:30 by emallah           #+#    #+#             */
+/*   Updated: 2021/11/18 17:46:31 by emallah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,5 @@
 
 char	*pwd(void);
 int		print_pwd(void);
-char	*get_old_pwd(char **env);
 
 #endif

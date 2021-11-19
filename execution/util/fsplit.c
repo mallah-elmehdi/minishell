@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emallah <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: emallah <emallah@1337.ma>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 13:18:29 by emallah           #+#    #+#             */
 /*   Updated: 2021/11/02 13:18:36 by emallah          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "util.h"
+#include "../../minishell.h"
 
 char	*first_str(char *str, char delim)
 {
@@ -50,7 +50,7 @@ char	*second_str(char *str, char delim)
 	return (second);
 }
 
-char	**ft_fsplit(const char *str, char delim)
+char	**ft_fsplite(const char *str, char delim)
 {
 	char	**splited;
 
